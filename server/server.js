@@ -5,6 +5,8 @@ import dbConnect  from "./database/dbConnection.js";
 
 // Importing the custom routes
 import authRoutes from "./routes/authRoute.js";
+import messageRoutes from "./routes/messageRoute.js";
+import userRoutes from "./routes/userRoutes.js";
 
 
 // Configuring the env file
@@ -19,9 +21,10 @@ app.use(express.json());                                // Middleware to parse t
 app.use(express.urlencoded({ extended: true }));        // Middleware to parse URL-encoded bodies
 app.use(cookieParser());                                // Middlewares to parse the cookies 
 
-// Setting up the routes
+// Setting up the custom routes
 app.use("/api/auth", authRoutes);
-
+app.use("/api/messages", messageRoutes);
+app.use("/api/users", userRoutes);
 
 
 // Starting the Express App Server
