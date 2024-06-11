@@ -24,7 +24,7 @@ export const validateUserRegistration = (data) => {
         throw errorHandler(400, "Gender is required");
     }
     // Validating user Passwords
-    if( !password || password === "" || !confirmPassword || confirmPassword === "" ){
+    if( !password || password === "" || password.length < 8 || !confirmPassword || confirmPassword === "" || confirmPassword.length < 8 ){
         throw errorHandler(400, "Passowrds must be atleast 8 characters or more.");
     }
     // Validating the both passwords
@@ -43,6 +43,6 @@ export const validateUserLogin = (data) => {
     }
     // Validating user Password
     if( !password || password === "" ){
-        throw errorHandler(400, "Passowrds must be atleast 8 characters or more.");
+        throw errorHandler(400, "Passowrds is required.");
     }
 };
