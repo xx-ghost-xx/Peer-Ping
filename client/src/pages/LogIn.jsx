@@ -24,20 +24,37 @@ const LogIn = () => {
 	};
 	// JSX to render the page
 	return (
-		<div className="px-3 py-6 self-center flex flex-col items-center justify-center gap-5 mx-auto min-w-96 rounded-2xl bg-gray-800">
+		<div className="px-0 py-6 self-center flex flex-col items-center justify-center gap-5 rounded-2xl bg-gray-800 w-80 sm:px-3 sm:mx-auto sm:min-w-96  ">
 			<h2 className="font-semibold text-2xl">Login</h2>
-			<form onSubmit={handleLogIn} className="w-full m-3 p-1 flex flex-col gap-4 items-center justify-center text-sm text-gray-200">
-				<input type="text" id="username" value={userName} onChange={(e) => setUserName( e.target.value )} placeholder="Username" className="w-3/4 p-2 bg-transparent border-b border-gray-400 outline-none" />
-				<input type="password" id="password" value={password} onChange={(e) => setPassword( e.target.value )} placeholder="Password" className="w-3/4 p-2 bg-transparent border-b border-gray-400 outline-none" />
-				<button type="submit" disabled={loading} className="btn btn-wide btn-sm bg-gradient-to-tr from-teal-500 via-green-400 to-teal-800 text-gray-800">
-					{!loading ? "LogIn" : (
-						<span className="loading loading-spinner"></span>
-					)}
+			<form onSubmit={handleLogIn} className="w-full m-1 flex flex-col gap-4 items-center justify-center text-sm text-gray-200 sm:p-1 sm:m-3">
+				<input 
+					type="text" 
+					id="username" 
+					value={userName} 
+					onChange={(e) => setUserName( e.target.value )} 
+					placeholder="Username" 
+					className="w-5/6 p-2 bg-transparent border-b border-gray-400 outline-none sm:w-3/4" 
+				/>
+				<input 
+					type="password" 
+					id="password" 
+					value={password} 
+					onChange={(e) => setPassword( e.target.value )} 
+					placeholder="Password" 
+					className="w-5/6 p-2 bg-transparent border-b border-gray-400 outline-none sm:w-3/4" 
+				/>
+				<button 
+					type="submit" 
+					disabled={loading} 
+					className="btn btn-sm bg-gradient-to-tr from-teal-500 via-green-400 to-teal-800 text-gray-800 sm:btn-wide w-40">
+						{!loading ? "LogIn" : (
+							<span className="loading loading-spinner"></span>
+						)}
 				</button>
 			</form>
-			<div className="flex gap-3 text-xs mt-1">
-				<span>Don"t have an Account? </span>
-				<Link to="/signUp" className="text-cyan-500" >Create a Account</Link>
+			<div className="flex flex-col items-center text-xs mt-1 sm:flex-row sm:gap-3">
+				<span>Don"t have a Account? </span>
+				<Link to="/signUp" className="text-cyan-500 underline underline-offset-2" >Create here..</Link>
 			</div>
 		</div>
 	);
