@@ -2,6 +2,9 @@
 import Message from "../models/message.js";
 import Conversation from "../models/conversation.js";
 
+// Importing custom socket
+import { getReceiverSocketId, io } from "../sockets/socket.js";
+
 // Creating a sendMessage Controller Function
 export const sendMessage = async (req, res, next) => {
     try {
@@ -33,11 +36,18 @@ export const sendMessage = async (req, res, next) => {
         // Push the id of new message created into the Conversations
         if(newMessage)
             conversation.messages.push(newMessage._id);
-
+        
         // Save the conversation & message both in a optimised way,
         //  where they both are saved in parallel to each other at a instant
         await Promise.all([ conversation.save(), newMessage.save() ]);
-
+        
+        // Handling the Sockets for realtime messaging
+        const receiverSocketId = getReceiverSocketId(receiverId);
+        if(receiverSocketId){
+            // io.to(<socket.id>).emit() -> is used to send emits to specific clients/users
+            io.to(receiverSocketId).emit("newMessage", newMessage);
+        }
+        
         // Send the new message as response
         res.status(201).json(newMessage);
 

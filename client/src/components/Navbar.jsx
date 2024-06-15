@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import useLogout from "../hooks/useLogout";
 
 // Importing React Icons
-import { HiOutlineChatAlt2, HiOutlineLogout, HiOutlineCog, HiOutlineMenuAlt2, HiOutlineX } from "react-icons/hi";
+import { HiOutlineChatAlt2, HiOutlineLogout, HiOutlineCog , HiOutlineMenuAlt2, HiOutlineX } from "react-icons/hi";
 
 // Creating the Navbar component
 const Navbar = ({ isDrawerOpen, toggleDrawer }) => {
@@ -26,7 +26,7 @@ const Navbar = ({ isDrawerOpen, toggleDrawer }) => {
     return (
         <div className="flex items-center justify-between w-full py-3 sm:px-10 px-1 rounded-xl bg-slate-800" style={{ height: "10%" }}>
             <button 
-                    className="lg:hidden flex items-center justify-center bg-cyan-200 bg-opacity-50 text-black text-lg p-2 rounded-full self-start"
+                    className="lg:hidden flex items-center justify-center bg-cyan-700 bg-opacity-30 text-white text-lg p-2 rounded-full hover:scale-95"
                     onClick={toggleDrawer}
                 >
                     {isDrawerOpen ? (<HiOutlineX />) : (<HiOutlineMenuAlt2 />)}

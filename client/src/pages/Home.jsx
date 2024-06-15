@@ -48,7 +48,7 @@ const Home = () => {
         <div className="flex flex-col items-center justify-center w-screen gap-2 h-full p-2">
             <Navbar isDrawerOpen={isDrawerOpen} toggleDrawer={() => setIsDrawerOpen(!isDrawerOpen)} />
             <div className="h-5/6 w-full p-2 flex items-center justify-center gap-1 bg-slate-800 rounded-2xl relative">
-                <div className={`lg:block z-50 ${isDrawerOpen ? 'flex' : 'hidden'} ${isDrawerOpen ? "absolute left-0 top-0 bottom-0 rounded-2xl bg-slate-900 backdrop-blur-sm bg-opacity-70" : ""} h-full`}>
+                <div className={`lg:block z-50 ${isDrawerOpen ? 'flex' : 'hidden'} ${isDrawerOpen ? "absolute left-0 top-0 bottom-0 rounded-2xl bg-cyan-950 bg-opacity-40 backdrop-blur-md" : ""} h-full`}>
                     <UserList />
                 </div>
                 <div className="flex flex-1 h-full w-full">

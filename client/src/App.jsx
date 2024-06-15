@@ -15,7 +15,7 @@ function App() {
 	const {authUser} = useAuthContext();
 	// JSX to render the App
 	return (
-		<div className="p-6 flex items-start justify-center h-screen overflow-hidden">
+		<div className="sm:px-6 flex items-start justify-center h-screen overflow-hidden">
 			<Routes>
 				{/* All routes are inter-dependent ::->:: Only if user is LoggedIn/SingedUp then it will be sent to Home */}
 				<Route path="/" element={ authUser ? <Home /> : <Navigate to="/logIn" />} />
