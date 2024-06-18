@@ -90,11 +90,11 @@ export const loginUser = async (req, res, next) => {
         
         // If the user don't exist then give error
         if(!validUser)
-            return next(errorHandler(404, "User don't exist."));
+            return next(errorHandler(404, "Invalid Username or Password."));
         // Check password validity
         const isPassCorrect = bcrypt.compareSync(password, validUser?.password || "");
         if(!isPassCorrect)
-            return next(errorHandler(400, "Invalid Username or Password"));
+            return next(errorHandler(400, "Invalid Username or Password."));
 
         // Generate a token
         generateToken(validUser._id, res);
