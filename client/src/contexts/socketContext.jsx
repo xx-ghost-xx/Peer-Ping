@@ -21,7 +21,8 @@ export const SocketContextProvider = ({children}) => {
 
     useEffect(() => {
         if(authUser){
-            const socket = io("http://localhost:8000", {
+            const serverUrl = import.meta.env.VITE_PROXY_TARGET;
+            const socket = io(serverUrl, {
                 query: {
                     userId: authUser.user._id,
                 }

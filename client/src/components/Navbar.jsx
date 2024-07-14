@@ -27,7 +27,7 @@ const Navbar = ({ isDrawerOpen, toggleDrawer }) => {
         <div className="flex items-center justify-between w-full py-3 sm:px-10 px-1 rounded-xl bg-slate-800" style={{ height: "10%" }}>
             <button 
                     className="lg:hidden flex items-center justify-center bg-cyan-700 bg-opacity-30 text-white text-lg p-2 rounded-full hover:scale-95"
-                    onClick={toggleDrawer}
+                    onClickCapture={toggleDrawer}
                 >
                     {isDrawerOpen ? (<HiOutlineX />) : (<HiOutlineMenuAlt2 />)}
                 </button>

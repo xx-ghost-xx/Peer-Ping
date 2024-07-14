@@ -7,7 +7,7 @@ const MsgContainerHeader = ({fullName, profilePic, userName}) => {
     return (
     <div className="flex gap-2 p-6 items-center cursor-pointer w-full border-b border-gray-600" style={{height: "8%", width: "95%" }}>
             {/* User Profile Pic */}
-            <div className="avatar online">
+            <div className={"avatar"}>
                 <div className="w-8 rounded-full bg-slate-100">
                     <img src={profilePic} alt="DP" />
                 </div>
