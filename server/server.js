@@ -1,6 +1,7 @@
 // Importing required modules
 import express from "express";
-import  cookieParser  from "cookie-parser";
+import cookieParser  from "cookie-parser";
+import path from "path";
 import dbConnect  from "./database/dbConnection.js";
 import { app, server } from "./sockets/socket.js";
 
@@ -8,7 +9,6 @@ import { app, server } from "./sockets/socket.js";
 import authRoutes from "./routes/authRoute.js";
 import messageRoutes from "./routes/messageRoute.js";
 import userRoutes from "./routes/userRoutes.js";
-
 
 // Configuring the env file
 import dotenv from "dotenv";
@@ -25,8 +25,16 @@ app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoutes);
 
+// setting up the middleware to serve static files
+const __dirname = path.resolve();
+app.use(express.static((path.join(__dirname, "/client/dist"))));
 
-// Starting the Express App Server
+// setting universal route
+app.get("*", (req, res) => { 
+    res.send(path.join(__dirname, "client", "dist", "index.html"));
+ })
+
+
 // Starting the Express App Server
 const PORT = process.env.PORT || 5000;
 dbConnect().then(() => {
